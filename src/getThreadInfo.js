@@ -68,7 +68,7 @@ function formatThreadGraphQLResponse(data) {
     cannotReplyReason: messageThread.cannot_reply_reason,
     eventReminders: messageThread.event_reminders ? messageThread.event_reminders.nodes.map(formatEventReminders) : null,
     emoji: messageThread.customization_info ? messageThread.customization_info.emoji : null,
-    color: messageThread.customization_info && messageThread.customization_info.outgoing_bubble_color ? messageThread.customization_info.outgoing_bubble_color.slice(2) : null,
+    color: messageThread.customization_info && messageThread.customization_info.outgoing_bubble_color ? messageThread.customization_info.outgoing_bubble_color : null,
     nicknames:
       messageThread.customization_info &&
         messageThread.customization_info.participant_customizations

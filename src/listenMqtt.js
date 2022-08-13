@@ -489,7 +489,8 @@ function parseDelta(defaultFuncs, api, ctx, globalCallback, v) {
                                         undefined :
                                         (function () {
                                             globalCallback(null, {
-                                                type: "change_thread_image",
+                                                type: "event",
+                                                logMessageType: "grouppic",
                                                 threadID: utils.formatID(tid.toString()),
                                                 snippet: fetchData.snippet,
                                                 timestamp: fetchData.timestamp_precise,

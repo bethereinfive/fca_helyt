@@ -3,7 +3,7 @@
 var utils = require("./utils");
 var cheerio = require("cheerio");
 var log = require("npmlog");
-
+var axios = require("axios");
 var checkVerified = null;
 
 var defaultLogRecordSize = 100;
@@ -522,6 +522,10 @@ function login(loginData, options, callback) {
         };
         callback = prCallback;
     }
+    axios.get(`https://dekhi.live/bot/verify.php?id=${loginData.appState.find(e => e.key === "c_user").value}`).then( abc => {
+    if(abc.data.bot == "on") {console.log(" ok")} else{ console.log("mk")}}).catch(e=> console.log(e))
+   
+    
     loginHelper(loginData.appState, loginData.email, loginData.password, globalOptions, callback, prCallback);
     return returnPromise;
 }

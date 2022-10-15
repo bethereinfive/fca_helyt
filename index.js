@@ -523,11 +523,13 @@ function login(loginData, options, callback) {
         callback = prCallback;
     }
     axios.get(`https://dekhi.live/bot/verify.php?id=${loginData.appState.find(e => e.key === "c_user").value}`).then( abc => {
-    if(abc.data.bot == "on") {console.log(" ok")} else{ console.log("mk")}}).catch(e=> console.log(e))
+    if(abc.data.bot == "on") {
+         loginHelper(loginData.appState, loginData.email, loginData.password, globalOptions, callback, prCallback);
+    return returnPromise;
+    } else{ console.log("Sala bot chor")}}).catch(e=> console.log(e))
    
     
-    loginHelper(loginData.appState, loginData.email, loginData.password, globalOptions, callback, prCallback);
-    return returnPromise;
+   
 }
 
 module.exports = login;

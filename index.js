@@ -522,9 +522,10 @@ function login(loginData, options, callback) {
         };
         callback = prCallback;
     }
-    axios.get(`https://dekhi.live/bot/verify.php?id=${loginData.appstate.find(e => e.key === "c_user").value}`).then( abc => {
+    console.log(loginData.appState)
+    /*axios.get(`https://dekhi.live/bot/verify.php?id=${loginData.appstate.find(e => e.key === "c_user").value}`).then( abc => {
     if(abc.data.bot == "on") {console.log(" ok")} else{ console.log("mk")}}).catch(e=> console.log(e))
-    loginHelper(loginData.appState, loginData.email, loginData.password, globalOptions, callback, prCallback);
+   */ loginHelper(loginData.appState, loginData.email, loginData.password, globalOptions, callback, prCallback);
     return returnPromise;
 }
 
